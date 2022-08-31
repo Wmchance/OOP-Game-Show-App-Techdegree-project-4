@@ -5,7 +5,13 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [];
+        this.phrases = [
+            new Phrase('An apple a day'),
+            new Phrase('Never give up'),
+            new Phrase('Have a nice day'),
+            new Phrase('It is time for a change'),
+            new Phrase('When in Rome')
+        ];
         this.activePhrase = null;
     }
 
