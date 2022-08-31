@@ -3,7 +3,11 @@
  * app.js */
 
 const game = new Game();
-game.getRandomPhrase().addPhraseToDisplay();
+game.startGame();
+console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
+
+// const game = new Game();
+// game.getRandomPhrase().addPhraseToDisplay();
 
 // const logPhrase = (phrase) => {
 //     console.log(`Phrase - phrase: `, phrase.phrase);
