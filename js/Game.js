@@ -15,4 +15,13 @@ class Game {
         this.activePhrase = null;
     }
 
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
+    getRandomPhrase() {
+        const randomNum = Math.floor(Math.random() * this.phrases.length); //generate a random number
+        return this.phrases[randomNum];
+    }
+
 }
