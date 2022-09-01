@@ -26,22 +26,19 @@ class Phrase {
                 phraseDivUl.appendChild(newLetterLi);
             }
         }
-    }
+    };
 
     /**
     * Checks if passed letter is in phrase
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        // document.getElementById('qwerty').addEventListener('click', (e) => {
-        //     letter = e.target.innerText;
-        // })
         if(game.activePhrase.phrase.includes(letter)) { //Look up how to remove the boolean returns
             return true;
         } else {
             return false;
         }
-    }
+    };
 
     /**
     * Displays passed letter on screen after a match is found
@@ -54,6 +51,6 @@ class Phrase {
             matchedLetterLi[i].classList.remove('hide');
             matchedLetterLi[i].classList.add('show');
         }
-    }
+    };
 
 }

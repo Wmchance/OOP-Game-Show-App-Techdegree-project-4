@@ -22,7 +22,7 @@ class Game {
     getRandomPhrase() {
         const randomNum = Math.floor(Math.random() * this.phrases.length); //generate a random number
         return this.phrases[randomNum];
-    }
+    };
 
     /**
     * Begins game by selecting a random phrase and displaying it to user
@@ -32,7 +32,7 @@ class Game {
 
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-    }
+    };
 
     /**
     * Checks for winning move
@@ -46,7 +46,7 @@ class Game {
         } else {
             return false;
         }
-    }
+    };
 
     /**
     * Increases the value of the missed property
@@ -64,7 +64,7 @@ class Game {
         if (this.missed === 5) {
             game.gameOver();
         }
-    }
+    };
 
     /**
     * Displays game over message
@@ -81,6 +81,14 @@ class Game {
             document.getElementById('overlay').className = 'lose';
         }
 
+    };
+
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(button) {
+        console.log(button);
     };
 
 }
