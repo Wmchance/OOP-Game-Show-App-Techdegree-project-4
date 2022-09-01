@@ -8,9 +8,25 @@ document.getElementById('btn__reset').addEventListener('click', () => {
     game.startGame();
 })
 
+//EventListener for virtual keyboard
 document.getElementById('qwerty').addEventListener('click', (e) => {
     if(e.target.className === 'key') {
         game.handleInteraction(e.target);
+        //console.log(e.target);
+    }
+})
+
+//EventListener for physical keyboard
+document.addEventListener('keyup', (e) => {
+    const keyArr = document.getElementsByClassName('key');
+    let pressedBtn;
+    for(let i=0; i<keyArr.length; i++) {
+        if(keyArr[i].innerText === e.key) {
+            pressedBtn = keyArr[i];
+            game.handleInteraction(pressedBtn);
+            //console.log(pressedBtn);
+            //console.log(e.key);
+        }
     }
 })
 
