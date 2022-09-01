@@ -48,4 +48,39 @@ class Game {
         }
     }
 
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {
+        this.missed += 1; 
+
+        const triesLi = document.getElementsByClassName('tries');
+        if(this.missed <= 5) {
+            triesLi[this.missed-1].innerHTML = '<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30"></img>';
+        } 
+        
+        if (this.missed === 5) {
+            game.gameOver();
+        }
+    }
+
+    /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {
+        document.getElementById('overlay').style.display = '';
+
+        if (this.missed < 5) {
+            document.getElementById('game-over-message').innerText = "You won! Great job!";
+            document.getElementById('overlay').className = 'win';
+        } else {
+            document.getElementById('game-over-message').innerText = "Good try! Better luck next time";
+            document.getElementById('overlay').className = 'lose';
+        }
+
+    };
+
 }
