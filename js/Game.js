@@ -81,6 +81,8 @@ class Game {
             document.getElementById('overlay').className = 'lose';
         }
 
+        document.getElementById('phrase').firstElementChild.children;
+
     };
 
     /**
@@ -88,7 +90,21 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        console.log(button);
+        //console.log(button.innerText);
+        button.classList.add('disabled');
+
+        let isMatch = game.activePhrase.checkLetter(button.innerText);
+        if(isMatch) {
+            button.classList.add('chosen');
+            game.activePhrase.showMatchedLetter(button.innerText); 
+            let hasWon = game.checkForWin()
+            if(hasWon) {
+                game.gameOver();
+            }
+        } else {
+            button.classList.add('wrong');
+            game.removeLife(); 
+        }
     };
 
 }
