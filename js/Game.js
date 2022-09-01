@@ -34,4 +34,18 @@ class Game {
         this.activePhrase.addPhraseToDisplay();
     }
 
+    /**
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't won
+    */
+    checkForWin() {
+        const hideLi = document.getElementsByClassName('hide');
+
+        if (hideLi.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
