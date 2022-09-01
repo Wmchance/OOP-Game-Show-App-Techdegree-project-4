@@ -28,4 +28,19 @@ class Phrase {
         }
     }
 
+    /**
+    * Checks if passed letter is in phrase
+    * @param (string) letter - Letter to check
+    */
+    checkLetter(letter) {
+        // document.getElementById('qwerty').addEventListener('click', (e) => {
+        //     letter = e.target.innerText;
+        // })
+        if(game.activePhrase.phrase.includes(letter)) { //Look up how to remove the boolean returns
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
