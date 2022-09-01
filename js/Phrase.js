@@ -43,4 +43,17 @@ class Phrase {
         }
     }
 
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        const matchedLetterLi = document.getElementsByClassName(letter);
+
+        for(let i=0; i<matchedLetterLi.length; i++) {
+            matchedLetterLi[i].classList.remove('hide');
+            matchedLetterLi[i].classList.add('show');
+        }
+    }
+
 }
