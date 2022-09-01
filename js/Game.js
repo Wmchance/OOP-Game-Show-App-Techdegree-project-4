@@ -81,7 +81,25 @@ class Game {
             document.getElementById('overlay').className = 'lose';
         }
 
-        document.getElementById('phrase').firstElementChild.children;
+        /*
+        * Reset elements between games
+        */
+
+        //Removes all <li> elements from the <ul> inside the phrase div
+        let liElements = document.getElementById('phrase').firstElementChild;
+        liElements.innerHTML = ''; 
+
+        //Removes 'wrong', 'chosen', 'disabled' from virtual keyboard btns so that they can be used again in new game
+        let qwertyBtns = document.getElementsByClassName('key');
+        for(let i=0; i<qwertyBtns.length; i++) {
+            qwertyBtns[i].classList.remove('wrong', 'chosen', 'disabled');
+        }
+
+        //Changes scoreboard hearts back to the 'liveHeart' png
+        const triesLi = document.getElementsByClassName('tries');
+        for(let i=0; i<triesLi.length; i++) {
+            triesLi[i].innerHTML = '<img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></img>';
+        }
 
     };
 
