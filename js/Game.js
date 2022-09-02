@@ -107,20 +107,6 @@ class Game {
         }
     };
 
-    //EventListener for physical keyboard
-    listenForKeyboard() {
-        document.addEventListener('keyup', (e) => {
-            const keyArr = document.getElementsByClassName('key');
-            let pressedBtn;
-            for(let i=0; i<keyArr.length; i++) {
-                if(keyArr[i].innerText === e.key) {
-                    pressedBtn = keyArr[i];
-                    game.handleInteraction(pressedBtn);
-                }
-            }
-        })
-    }
-
     /**
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
@@ -139,6 +125,9 @@ class Game {
         /*
         * Reset elements between games
         */
+
+        //Remove eventListner for physical keyboard
+        document.removeEventListener('keyup', getKeyPress);
 
         //Removes all <li> elements from the <ul> inside the phrase div
         let liElements = document.getElementById('phrase').firstElementChild;
@@ -168,7 +157,7 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        //console.log(button.innerText);
+        console.log(button);
         button.classList.add('disabled');
 
         let isMatch = game.activePhrase.checkLetter(button.innerText);
@@ -179,10 +168,13 @@ class Game {
             if(hasWon) {
                 game.gameOver();
             }
-        } else {
+        } else if(button.className !== 'key','disabled','wrong') {
             button.classList.add('wrong');
-            game.removeLife(); 
+            game.removeLife();
+        } else {
+            console.log('dog');
         }
+        
     };
 
 }

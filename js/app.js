@@ -6,7 +6,9 @@ let game;
 document.getElementById('btn__reset').addEventListener('click', () => {
     game = new Game; 
     game.startGame();
-    game.listenForKeyboard();
+    
+    //add eventListener for physical keyboard
+    document.addEventListener('keyup', getKeyPress);
 })
 
 //EventListener for virtual keyboard
@@ -17,7 +19,21 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
     }
 })
 
-// //EventListener for physical keyboard
+//EventListener for physical keyboard
+function getKeyPress(e) {
+    const keyArr = document.getElementsByClassName('key');
+    let pressedBtn;
+    for(let i=0; i<keyArr.length; i++) {
+        if(keyArr[i].innerText === e.key) {
+            pressedBtn = keyArr[i];
+            game.handleInteraction(pressedBtn);
+        }
+    } 
+}
+
+// document.addEventListener('keyup', getKeyPress);
+// document.removeEventListener('keyup', getKeyPress);
+
 // document.addEventListener('keyup', (e) => {
 //     const keyArr = document.getElementsByClassName('key');
 //     let pressedBtn;
