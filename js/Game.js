@@ -143,7 +143,9 @@ class Game {
         }
 
         //Removes any hint img
-        document.getElementById('hintImg').remove(); 
+        if(this.missed >= 4) {
+            document.getElementById('hintImg').remove(); 
+        }
 
     };
 

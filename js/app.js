@@ -24,8 +24,6 @@ document.addEventListener('keyup', (e) => {
         if(keyArr[i].innerText === e.key) {
             pressedBtn = keyArr[i];
             game.handleInteraction(pressedBtn);
-            //console.log(pressedBtn);
-            //console.log(e.key);
         }
     }
 })
