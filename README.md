@@ -7,5 +7,5 @@ If the length of the active phrase is shorter than 14, the banner's background c
 
 <strong>Provides hint image if user loses four lives</strong><br>
 (Game.js lines 79-103)<br>
-If a player loses four lives, an image will be provided as a hint to help complete the phrase<br>
+If a player loses four lives, an image will be provided as a hint to help complete the phrase.<br>
 Images are unique to given phrases.<br>
