@@ -32,6 +32,17 @@ class Game {
 
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
+
+        /*
+        *personalize style
+        */
+        //Banner color changes to indicate difficulty level based on phrase length
+        const phraseLength = this.activePhrase.phrase.length; 
+        if(phraseLength > 14) {
+            document.getElementById('banner').style.backgroundColor = "pink";
+        } else {
+            document.getElementById('banner').style.backgroundColor = "green";
+        }
     };
 
     /**
@@ -60,6 +71,36 @@ class Game {
         if(this.missed <= 5) {
             triesLi[this.missed-1].innerHTML = '<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30"></img>';
         } 
+
+        /*
+        *personalize style
+        */
+        //Provides hint image if user loses four lives
+        if(this.missed === 4) {
+            const imgDiv = document.createElement('div');
+            imgDiv.id = 'hintImg';
+
+            if(this.activePhrase.phrase.includes('apple')) {
+                imgDiv.innerHTML = '<img src="images/apple-pexels-tom-swinnen-574919.jpeg" alt="Apples on tree" height="200" width="700" border="1px solid black"></img>';
+                document.getElementById('banner').appendChild(imgDiv);
+
+            } else if(this.activePhrase.phrase.includes('never')) {
+                imgDiv.innerHTML = '<img src="images/never-give-up-pexels-allan-mas-5368943.jpeg" alt="Person helping another up" height="200" width="700" border="1px solid black"></img>';
+                document.getElementById('banner').appendChild(imgDiv);
+
+            } else if(this.activePhrase.phrase.includes('nice')) {
+                imgDiv.innerHTML = '<img src="images/nice-day-pexels-zen-chung-5537571.jpeg" alt="Person saying goodbye to another" height="200" width="700" border="1px solid black"></img>';
+                document.getElementById('banner').appendChild(imgDiv);
+
+            } else if(this.activePhrase.phrase.includes('time')) {
+                imgDiv.innerHTML = '<img src="images/time-change-pexels-pixabay-128867.jpeg" alt="A clock and coins" height="200" width="700" border="1px solid black"></img>';
+                document.getElementById('banner').appendChild(imgDiv);
+
+            } else if(this.activePhrase.phrase.includes('rome')) {
+                imgDiv.innerHTML = '<img src="images/Colosseum-pexels-davi-pimentel-2064827.jpeg" alt="The Colosseum" height="200" width="700" border="1px solid black"></img>';
+                document.getElementById('banner').appendChild(imgDiv);
+            }
+        }
         
         if (this.missed === 5) {
             game.gameOver();
@@ -100,6 +141,9 @@ class Game {
         for(let i=0; i<triesLi.length; i++) {
             triesLi[i].innerHTML = '<img src="images/liveHeart.png" alt="Heart Icon" height="35" width="30"></img>';
         }
+
+        //Removes any hint img
+        document.getElementById('hintImg').remove(); 
 
     };
 
