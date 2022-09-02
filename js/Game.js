@@ -107,6 +107,20 @@ class Game {
         }
     };
 
+    //EventListener for physical keyboard
+    listenForKeyboard() {
+        document.addEventListener('keyup', (e) => {
+            const keyArr = document.getElementsByClassName('key');
+            let pressedBtn;
+            for(let i=0; i<keyArr.length; i++) {
+                if(keyArr[i].innerText === e.key) {
+                    pressedBtn = keyArr[i];
+                    game.handleInteraction(pressedBtn);
+                }
+            }
+        })
+    }
+
     /**
     * Displays game over message
     * @param {boolean} gameWon - Whether or not the user won the game
