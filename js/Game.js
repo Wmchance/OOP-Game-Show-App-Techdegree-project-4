@@ -35,9 +35,7 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
 
-        /*
-        *personalize style
-        */
+        //personalize style
         //Banner color changes to indicate difficulty level based on phrase length
         const phraseLength = this.activePhrase.phrase.length; 
         if(phraseLength > 14) {
@@ -74,9 +72,7 @@ class Game {
             triesLi[this.missed-1].innerHTML = '<img src="images/lostHeart.png" alt="Heart Icon" height="35" width="30"></img>';
         } 
 
-        /*
-        *personalize style
-        */
+        //personalize style
         //Provides hint image if user loses four lives
         if(this.missed === 4) {
             const imgDiv = document.createElement('div');
@@ -173,7 +169,6 @@ class Game {
         } else if(isMatch === false && this.wrongArr.includes(button.innerText) === false) {
             button.classList.add('wrong');
             this.wrongArr.push(button.innerText)
-            console.log(this.wrongArr);
             game.removeLife();
         } 
         

@@ -33,7 +33,7 @@ class Phrase {
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        if(game.activePhrase.phrase.includes(letter)) { //Look up how to remove the boolean returns
+        if(game.activePhrase.phrase.includes(letter)) {
             return true;
         } else {
             return false;
