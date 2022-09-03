@@ -13,6 +13,8 @@ class Game {
             new Phrase('When in Rome')
         ];
         this.activePhrase = null;
+
+        this.wrongArr = []; //stores button values that are not a match and have already been selected
     }
 
     /**
@@ -157,7 +159,7 @@ class Game {
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        console.log(button);
+        // console.log(button);
         button.classList.add('disabled');
 
         let isMatch = game.activePhrase.checkLetter(button.innerText);
@@ -168,12 +170,12 @@ class Game {
             if(hasWon) {
                 game.gameOver();
             }
-        } else if(button.className !== 'key','disabled','wrong') {
+        } else if(isMatch === false && this.wrongArr.includes(button.innerText) === false) {
             button.classList.add('wrong');
+            this.wrongArr.push(button.innerText)
+            console.log(this.wrongArr);
             game.removeLife();
-        } else {
-            console.log('dog');
-        }
+        } 
         
     };
 
