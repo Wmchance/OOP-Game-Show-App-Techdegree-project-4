@@ -20,7 +20,7 @@ document.getElementById('qwerty').addEventListener('click', (e) => {
 })
 
 //Function for eventListener for physical keyboard
-    //Called in Game.js to add event listener when starting new game
+    //Called in App.js to add event listener when starting new game
     //Called in Game.js to remove event listener at 'Game Over'
 function getKeyPress(e) {
     const keyArr = document.getElementsByClassName('key');
